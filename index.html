@@ -1,101 +1,170 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CA Side Hustler</title>
+  <title>Hustler</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      text-align: center;
-      background-color: #f0f2f5;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
     }
+
     header {
-      background-color: #2b6cb0;
+      background: #002244;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    nav {
+      background-color: #011d3c;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+    }
+
+    nav a {
       color: white;
-      padding: 2rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .container {
-      margin-top: 2rem;
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
     }
-    button {
-      padding: 1rem 2rem;
-      margin: 1rem;
+
+    .intro {
+      background: #f4f4f4;
+    }
+
+    .dashboard-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .circle-button {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #0055a5;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .circle-button:hover {
+      border-radius: 20px;
+      background-color: #003366;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+    }
+
+    input, select {
+      padding: 10px;
       font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #3182ce;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #002244;
       color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #2c5282;
-    }
-    form {
-      margin-top: 2rem;
-      display: none;
-    }
-    input, select {
-      padding: 0.5rem;
-      margin: 0.5rem;
-      width: 80%;
-      max-width: 400px;
-    }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
+
+    .contact {
+      background: #f0f0f0;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>CA Side Hustler</h1>
-    <p>Empowering CA students and serving clients with trusted services</p>
-  </header>
-  <div class="container">
-    <h2>Choose your role</h2>
-    <button onclick="showForm('hustler')">I am a Hustler (CA Student)</button>
-    <button onclick="showForm('client')">I am a Client</button>
+  <header>WELCOME TO HUSTLER</header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
 
-    <form id="hustlerForm">
+  <section id="home">
+    <h2>Who We Are</h2>
+    <p>A community of CA, CMA, CS students and professionals.</p>
+    <h2>Why We Exist</h2>
+    <p>To hustle, grow, and serve clients by utilizing free time.</p>
+    <h2>Founded</h2>
+    <p>Started in 2024 by like-minded commerce professionals.</p>
+  </section>
+
+  <section id="dashboard">
+    <h2>Choose Your Action</h2>
+    <div class="dashboard-buttons">
+      <div class="circle-button" onclick="document.getElementById('hustler-form').scrollIntoView()">Hustler</div>
+      <div class="circle-button" onclick="document.getElementById('services-form').scrollIntoView()">Services</div>
+    </div>
+
+    <div id="hustler-form">
       <h3>Hustler Registration</h3>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email ID" required />
-      <input type="text" placeholder="Contact Number" required />
-      <input type="text" placeholder="Currently Working At" required />
-      <input type="text" placeholder="Which State?" required />
-      <input type="text" placeholder="Current City" required />
-      <input type="text" placeholder="PAN Number" required />
-      <input type="text" placeholder="Aadhaar Number" required />
-    </form>
+      <form action="YOUR_HUSTLER_GOOGLE_SCRIPT_URL" method="POST">
+        <input type="text" name="Name" placeholder="Name" required />
+        <input type="email" name="Email" placeholder="Email" required />
+        <input type="text" name="Firm" placeholder="Firm Name (if any)" />
+        <input type="text" name="Location" placeholder="Location" required />
+        <input type="text" name="Aadhaar" placeholder="Aadhaar Card" pattern="\d{12}" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
 
-    <form id="clientForm">
-      <h3>Client Service Request</h3>
-      <label>What services do you need?</label>
-      <select>
-        <option>ITR Filing</option>
-        <option>GST Returns</option>
-        <option>Audit Assistance</option>
-        <option>Forensic Audit</option>
-        <option>Insolvency Support</option>
-        <option>Tax Consultancy</option>
-        <option>Others (e.g., Certification)</option>
-      </select>
-      <input type="text" placeholder="Your Location" required />
-      <input type="number" placeholder="No. of Persons" required />
-      <input type="text" placeholder="Pay Per Head (in ₹)" required />
-    </form>
-  </div>
+    <div id="services-form">
+      <h3>Client Services Request</h3>
+      <form action="YOUR_CLIENT_GOOGLE_SCRIPT_URL" method="POST">
+        <select name="Service">
+          <option>ITR Filing</option>
+          <option>GST Return</option>
+          <option>Tax Consultancy</option>
+          <option>Statutory Audit</option>
+          <option>Internal Audit</option>
+          <option>Physical Verification</option>
+          <option>Others (certification)</option>
+        </select>
+        <input type="text" name="Location" placeholder="Location" required />
+        <input type="number" name="People" placeholder="No. of Persons" required />
+        <input type="text" name="Pay" placeholder="Pay Per Head" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
 
-  <script>
-    function showForm(type) {
-      document.getElementById('hustlerForm').style.display = type === 'hustler' ? 'block' : 'none';
-      document.getElementById('clientForm').style.display = type === 'client' ? 'block' : 'none';
-    }
-  </script>
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/917977667420">7977667420</a></p>
+    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:choudharymadan2001@gmail.com">choudharymadan2001@gmail.com</a></p>
+  </section>
 </body>
+
 </html>
